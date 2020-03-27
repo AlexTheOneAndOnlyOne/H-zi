@@ -1,0 +1,13 @@
+import java.util.Random;
+public class JvaApplication {
+	public static void main(String atgs[]){
+		int [] tomb = new int[5];
+	Random rand = new Random();
+	int szam;
+	for (int i=0; i<5;i++){
+		szam=rand.nextInt(98)+1;
+		System.out.println(szam+",");
+			System.out.println("");	
+	}
+		}
+}
