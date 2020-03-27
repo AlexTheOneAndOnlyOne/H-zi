@@ -2,36 +2,36 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Másodfokú MEgoldó képlet</title>
+    <title>Másodfokú Megoldó képlet</title>
     <script>
         var a, b, c;
         var outputText;
         
         function validate() {
         
-            // get the input
-            a = document.forms["input_form"]["aterm"].value;
-            b = document.forms["input_form"]["bterm"].value;
-            c = document.forms["input_form"]["cterm"].value;
             
-            // validate a, b and c
+            a = document.forms["input_form"]["avaltozo"].value;
+            b = document.forms["input_form"]["bvaltozo"].value;
+            c = document.forms["input_form"]["cvaltozo"].value;
+            
+            
             if (a == 0) {
                 outputText = "<em>Az A</em> nem lehet nulla!";
             } else if (isNaN(a)) {
-                outputText = "<em>A</em> csak szám!";
+                outputText = "<em>A</em> csak szám lehet!";
             } else if (isNaN(b)) {
-                outputText = "<em>B</em> csak  szám!";
+                outputText = "<em>B</em> csak  szám lehet!";
             } else if (isNaN(c)) {
-                outputText = "<em>C</em> csak szám!";
+                outputText = "<em>C</em> csak szám lehet!";
             } else {
-                // calculate the result using x = (-b +- sqrt(b^2 - 4ac)) / 2a
+                
                 var x1 = (-b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
                 var x2 = (-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
                 outputText = "A számításnak <strong>" + (a == 1 ? "" : a) + "x\u00B2 + " + (b == 1 ? "" : b) + "x + " + c + " = 0</strong>, az X lehet <strong>" + x1 + "</strong> vagy <strong>" + x2 + "</strong>";
 					
             }
             
-            // output the result (or errors)
+            
             document.getElementById("output_text").innerHTML = outputText;
         }
     </script>
@@ -40,13 +40,13 @@
 <body>
     <p>Kérem adja meg az adatokat <strong>a</strong>, <strong>b</strong> és <strong>c</strong> ahhoz hogy eltudja a gép végezni a feladatot</p>
     <form name="input_form" action="javascript:validate();">
-        a: <input type="text" name="aterm" size="5" required>
-        b: <input type="text" name="bterm" size="5" required>
-        c: <input type="text" name="cterm" size="5" required>
+        a: <input type="text" name="avaltozo" size="10" required>
+        b: <input type="text" name="bvaltozo" size="10" required>
+        c: <input type="text" name="cvaltozo" size="10" required>
         <br><br>
-        <input type="submit" value="Számol">
+        <input type="submit" value="Megold">
     </form>
-    <p>Ha NaN-t ír azt jelenti hogy nincs megoldása a műveletnek</p>
+    <p> NaN esetében a műveletet nem lehet megoldani. Kérem gépeljen be más feladat adatait</p>
     <p id="output_text"/>
 </body>
 
